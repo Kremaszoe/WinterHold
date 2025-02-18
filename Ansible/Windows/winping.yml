@@ -1,7 +1,0 @@
----
-- hosts: all
-  tasks:
-    - name: Test Connection
-      ansible.windows.win_ping:
-
-#Simple playbook to ping windows devices#

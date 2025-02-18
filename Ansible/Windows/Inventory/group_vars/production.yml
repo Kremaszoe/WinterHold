@@ -1,9 +1,0 @@
----
-ansible_winrm_user: User
-ansible_winrm_password: Password
-ansible_winrm_port: 5986
-ansible_connection: winrm
-ansible_winrm_transport: ntlm
-ansible_winrm_server_cert_validation: ignore
-
-#Information Ansible needs to run playbook#
