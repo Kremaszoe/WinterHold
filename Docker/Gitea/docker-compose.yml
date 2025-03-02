@@ -1,0 +1,20 @@
+services:
+  server:
+    image: gitea/gitea:1.23.4 #Attached to the latest version
+    container_name: gitea
+    environment: #Configurable Environment Variables
+      - GITEA__database__DB_TYPE=${GITEA__database__DB_TYPE}
+      - GITEA__database__HOST=${GITEA__database__HOST}
+      - GITEA__database__NAME=${GITEA__database__NAME}
+      - GITEA__database__USER=${GITEA__database__USER}
+      - GITEA__database__PASSWD=${GITEA__database__PASSWD}
+    restart: unless-stopped
+    volumes: #mapped volumes for docker mounts
+      - /home/ansible/Docker-Files/Gitea/config:/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports: #mapped ports
+      - 3000:3000
+      - "222:22"
+    security_opt: #allows no sudo access by container
+      - no-new-privileges:true
